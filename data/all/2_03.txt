@@ -641,7 +641,7 @@ EXT: By the shore.
 
 Theon and a drowned priest stand in ankle deep water while soldiers look on.
 
-PRIEST: Theon of the House Greyjoy, you would this day consecrate your faith to the Drowned God?
+DROWNED PRIEST: Theon of the House Greyjoy, you would this day consecrate your faith to the Drowned God?
 
 THEON: I would.
 
@@ -745,7 +745,9 @@ PYCELLE: Lannister I always served Lannister.
 
 TYRION: Get him out of my sight. Throw him in one of the black cells.
 
-BRONN and TIMETT wrestle Pycelle out of the room. Pycelle: No. No, no, no. No, please. Don't! You can't do this to me!
+BRONN and TIMETT wrestle Pycelle out of the room.
+
+Pycelle: No. No, no, no. No, please. Don't! You can't do this to me!
 
 TYRION leaves a coin on the chair for the prostitute, who looks appears to be in shock.
 
