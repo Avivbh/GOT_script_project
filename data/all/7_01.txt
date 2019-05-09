@@ -13,7 +13,7 @@ WALDER FREY: I've gathered every Frey who means a damn thing so I can tell you m
 
 The Freys cheer. WALDER raises his glass.
 
-WALDERY FREY: Stand together!
+WALDER FREY: Stand together!
 
 The Freys stand in unison.
 
@@ -170,7 +170,9 @@ NED and ALYS stand.
 
 JON: Yesterday's wars don't matter anymore. The North needs to band together, all the living north. Will you stand beside me, Ned and Alys, now and always?
 
-NED & ALYS: Now and always!
+NED: Now and always!
+
+ALYS: Now and always!
 
 The men cheer and pound the tables.
 

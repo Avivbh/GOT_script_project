@@ -50,7 +50,7 @@ JOFFREY: Ser Loras Tyrell.
 
 LORAS steps forward from the crowd and kneels.
 
-JOFFFREY: Your house has come to our aid. The whole realm is in your debt, none more so than I. If your family would ask anything of me, ask it, and it shall be yours.
+JOFFREY: Your house has come to our aid. The whole realm is in your debt, none more so than I. If your family would ask anything of me, ask it, and it shall be yours.
 
 LORAS: Your Grace, my sister Margaery, her husband was taken from us before . . . She remains innocent. I would ask you to find it in your heart to do us the great honor of joining our houses.
 
@@ -394,7 +394,9 @@ STANNIS: I see fire.
 
 MELISANDRE: Keep looking. Do you see? Do you see, my king?
 
-STANNIS stares into the fire. His eyes grow wide and his face softens. MELISANDRE rests her head on his shoulder. Stannis: Yes.
+STANNIS stares into the fire. His eyes grow wide and his face softens. MELISANDRE rests her head on his shoulder.
+
+Stannis: Yes.
 
 INT: WINTERFELL
 

@@ -597,7 +597,7 @@ CUT TO: KING'S LANDING
 
 INT: Cersei's chambers, at night
 
-CERSEl: You monster. Myrcella is my only daughter. Do you really think I'll let you sell her like a common whore?
+CERSEI: You monster. Myrcella is my only daughter. Do you really think I'll let you sell her like a common whore?
 
 TYRION: Myrcella's a princess. Some would say she was born for this.
 

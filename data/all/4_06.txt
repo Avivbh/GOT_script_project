@@ -613,7 +613,7 @@ PYCELLE: This was found on the body of Dontos Hollard, the king's fool. He was l
 
 TYWIN: Was this one of the poisons stolen from your store?
 
-PYELLE: It was. The Strangler. A poison few in the Seven Kingdoms possess. And used to strike down the most noble child the gods ever put on this good earth.
+PYCELLE: It was. The Strangler. A poison few in the Seven Kingdoms possess. And used to strike down the most noble child the gods ever put on this good earth.
 
 The crowd murmurs.
 
@@ -739,13 +739,13 @@ TYRION: Oh, you think so?
 
 JAIME: When you are, you need to enter a formal plea for mercy and ask to be sent to the Wall. Father's agreed to it. He'll spare your life and allow you to join the Night's Watch.
 
-TYRIOM: Ned Stark was promised the same thing and we both know how that turned out.
+TYRION: Ned Stark was promised the same thing and we both know how that turned out.
 
 CERSEI enters. She watches her brothers whispering.
 
 JAIME: Father is not Joffrey. He'll keep his word.
 
-YTRION: How do you know?
+TYRION: How do you know?
 
 TYWIN, OBERYN and MACE enter and the crowd stands.
 

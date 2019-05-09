@@ -37,7 +37,6 @@ class GraphCreator(object):
 
         return graphs
 
-
     def _create_seasons_graph(self):
         pass
 
@@ -49,6 +48,8 @@ class GraphCreator(object):
 
 
 if __name__ == '__main__':
-    graph_creator = GraphCreator('parsed/season2.pkl')
-    graph_creator.export_episode_graph_to_gephi('03', 'episode_03.gexf')
+    episode = '01'
+    season = '2'
+    graph_creator = GraphCreator(f'parsed/season{season}.pkl')
+    graph_creator.export_episode_graph_to_gephi(episode, f'season_{season}_episode_{episode}.gexf')
     pass

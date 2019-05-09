@@ -8,6 +8,7 @@ from common import NameUtils
 class ScriptParser(object):
     def __init__(self):
         self._name_resolver = NameUtils()
+        self._all_people = set()
 
     def parse_episode(self, season, episode, file_path):
         with open(file_path, mode='r', encoding="utf-8") as episode_file:
@@ -28,6 +29,7 @@ class ScriptParser(object):
                     speaker_and_text = self._parse_speaking(line)
                     resolved_speaker_name = self._name_resolver.resolve_name(speaker_and_text[0], season, episode, len(scenes) + 1)
                     current_scene.add_script(resolved_speaker_name, speaker_and_text[1])
+                    self._all_people.add(resolved_speaker_name)
                 else:
                     current_scene.add_script(Tokens.DESCRIPTION_TOKEN, line)
 
@@ -48,10 +50,29 @@ class ScriptParser(object):
     def _parse_speaking(self, line):
         return line.split(':', 1)
 
+    def get_all_people(self):
+        return self._all_people
+
+
+def update_people_list(list_of_people):
+    pickle_path = '/Users/avivbh/dev/study/nlp/GOT_script_project/parsed/people_list.pkl'
+    text_path = '/Users/avivbh/dev/study/nlp/GOT_script_project/parsed/people_list'
+    people = list_of_people
+    if os.path.exists(pickle_path):
+        with open(pickle_path, mode='rb') as people_list_file:
+            people = pickle.load(people_list_file)
+            people.update(list_of_people)
+
+    with open(pickle_path, mode='wb') as people_list_file:
+        pickle.dump(people, people_list_file)
+
+    with open(text_path, mode='wb') as people_list_file:
+        people_list_file.write('\n'.join(people).encode('utf-8'))
+
 
 if __name__ == '__main__':
     parser = ScriptParser()
-    parse_season = '3'
+    parse_season = '7'
 
     data_dir = '/Users/avivbh/dev/study/nlp/GOT_script_project/data/all'
     files = os.listdir(data_dir)
@@ -67,4 +88,4 @@ if __name__ == '__main__':
     with open(f'/Users/avivbh/dev/study/nlp/GOT_script_project/parsed/season{parse_season}.pkl', mode='wb') as output_file:
         pickle.dump(all_scenes, output_file)
 
-
+    update_people_list(parser.get_all_people())

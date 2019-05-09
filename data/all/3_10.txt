@@ -926,7 +926,7 @@ CUT TO: The Dragonstone War Room
 
 MELISANDRE picks up some pieces from the war map. STANNIS is hunched over the table, holding a single scroll. MELISANDRE starts to drop the pieces in the fire, one by one. DAVOS enters.
 
-CUT: Melisandre, Stannis, Davos
+CUT TO: Melisandre, Stannis, Davos
 
 STANNIS: The usurper Robb Stark is dead. Betrayed by his bannerman.
 

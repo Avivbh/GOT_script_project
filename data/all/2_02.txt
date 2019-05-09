@@ -319,7 +319,7 @@ EDD: We need more potatoes. And get another sack for the sludge. (Sam begins to 
 
 As Sam continues walking, a dog barks. Then a woman screams. Sam turns around to see Gilly backed up against a fence post. Ghost stands in front of her, eyeing the meat she is carrying. Sam begins slowly walking over.
 
-SAME: No. Ghost, no. No. Ghost, away. Shoo. Shoo! (Ghost walks away). (To Gilly) You all right? Did he frighten you?
+SAM: No. Ghost, no. No. Ghost, away. Shoo. Shoo! (Ghost walks away). (To Gilly) You all right? Did he frighten you?
 
 Sam reaches out to touch Gilly, but she flinches back.
 
@@ -865,7 +865,11 @@ YARA: You're the one in skirts.
 
 BALON: This isn't Winterfell, boy. Your sister took over command of your eldest brother's ship after your new father killed him.
 
-ALL THREE: (Theon joins a little late). What's dead may never die.
+Theon: What's dead may never die.
+
+YARA: What's dead may never die.
+
+BALON: What's dead may never die.
 
 The only night she's spent off these islands has been spent on the sea. She's commanded men. She's killed men. She knows who she is.
 

@@ -436,7 +436,9 @@ DAENERYS: And the lives of your wise masters. But I also want something in retur
 
 RADZAI MO ERAZ: You are mad. We are not Astapor or Qarth. We are Yunkai and we have powerful friends. Friends who would take great pleasure in destroying you. Those who survive, we shall enslave once more. Perhaps we'll make a slave of you as well.
 
-RADZAI MO ERAZ stands quickly. Drogon screeches angrily from his perch in warning. RADZAI MO ERAZ: You swore me safe conduct.
+RADZAI MO ERAZ stands quickly. Drogon screeches angrily from his perch in warning.
+
+RADZAI MO ERAZ: You swore me safe conduct.
 
 DAENERYS: I did, but my dragons made no promises. And you threatened their mother.
 
@@ -664,7 +666,9 @@ QYBURN: It will take time.
 
 JAIME: (nods)
 
-QYBURN exits and ROOSE BOLTON approaches. Roose BOLTON: Qyburn hopes your father will force the Citadel to give him back his chain.
+QYBURN exits and ROOSE BOLTON approaches.
+
+Roose BOLTON: Qyburn hopes your father will force the Citadel to give him back his chain.
 
 JAIME mounts his horse.
 

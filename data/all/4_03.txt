@@ -954,11 +954,11 @@ CUT TO: The courtyard.
 
 JON helps DOLOROUS EDD and GRENN to the courtyard. ALLISER THORN and JANOS SLYNT walk up
 
-ALLISER THORN: What took you so long?
+ALLISER THORNE: What took you so long?
 
 GRENN: We were held up.
 
-ALLISER THORN: By what?
+ALLISER THORNE: By what?
 
 GRENN: Chains.
 
@@ -970,7 +970,7 @@ DOLOROUS EDD: They're not going anywhere. They've got Craster's food and his wiv
 
 JON: We need to ride north and kill them all.
 
-ALLISER THORN: We just went over this, boy. -Justice can wait.
+ALLISER THORNE: We just went over this, boy. -Justice can wait.
 
 JON: It's not about justice. I told the wildlings we had over 1,000 men at Castle Black alone. Karl and the others know the truth as well as we do. How long do you think they'll keep that information to themselves when the wildlings are peeling their fingernails off? Mance has all he needs to crush us, he just doesn't know it yet. As soon as he gets his hands on them, he will. Then he'll throw his full strength at us. And even if every one of us kills 100 wildlings, there's still not a thing we can do to stop them.
 
