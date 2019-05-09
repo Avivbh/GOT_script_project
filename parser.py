@@ -55,8 +55,8 @@ class ScriptParser(object):
 
 
 def update_people_list(list_of_people):
-    pickle_path = '/Users/avivbh/dev/study/nlp/GOT_script_project/parsed/people_list.pkl'
-    text_path = '/Users/avivbh/dev/study/nlp/GOT_script_project/parsed/people_list'
+    pickle_path = 'parsed/people_list.pkl'
+    text_path = 'parsed/people_list'
     people = list_of_people
     if os.path.exists(pickle_path):
         with open(pickle_path, mode='rb') as people_list_file:
@@ -74,7 +74,7 @@ if __name__ == '__main__':
     parser = ScriptParser()
     parse_season = '7'
 
-    data_dir = '/Users/avivbh/dev/study/nlp/GOT_script_project/data/all'
+    data_dir = 'data/all'
     files = os.listdir(data_dir)
     filtered_files = filter(lambda file_name: 'bad' not in file_name, files)
     all_scenes = []
@@ -85,7 +85,7 @@ if __name__ == '__main__':
         if season == parse_season:
             all_scenes = all_scenes + parser.parse_episode(season, episode, full_file_path)
 
-    with open(f'/Users/avivbh/dev/study/nlp/GOT_script_project/parsed/season{parse_season}.pkl', mode='wb') as output_file:
+    with open(f'parsed/season{parse_season}.pkl', mode='wb') as output_file:
         pickle.dump(all_scenes, output_file)
 
     update_people_list(parser.get_all_people())
