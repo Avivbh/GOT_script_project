@@ -59,7 +59,14 @@ class NameUtils(object):
             'walder': 'walder frey',
             'lollys': 'lollys stokeworth',
             'kraznys': 'kraznys mo nakloz',
-            'walda': 'lady walda'
+            'walda': 'lady walda',
+            'ersei': 'cersei',
+            'mountian': 'mountain',
+            'brinenne': 'brienne',
+            'ramsey': 'ramsay',
+            'ahsh': 'osha',
+            'radzai mo eraz': 'radzal mo eraz',
+            'rikon': 'rickon'
         }
         self._names_to_unique = ['man', "ironborn", 'crowd', 'gold cloak', 'announcer', 'lord', 'watchman', 'the group',
                                  'blacksmith' 'woman #9', 'woman', 'tailor', 'woman #8', 'driver', 'frey soldier #3',
