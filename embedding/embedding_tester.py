@@ -16,9 +16,10 @@ tv_show_model = SaveLoad.load(tv_show_model_path)
 
 
 
-list_of_words = ['dragon', 'jon', 'cersei', 'arya']
+list_of_words = ['stark', 'dragon', 'jon', 'cersei', 'arya']
 
 words_triples_list = [['man','woman','king'],
+                      ['sansa', 'stark', 'jaime'],
                       ['jaime', 'cersei', 'jon'],
                       ['jaime', 'cersei', 'arya']
                       ]
@@ -26,10 +27,10 @@ words_triples_list = [['man','woman','king'],
 
 
 for word in list_of_words:
-    book_most_similar = books_model.wv.most_similar_cosmul(positive=word)[0][0]
-    tv_most_similar = tv_show_model.wv.most_similar_cosmul(positive=word)[0][0]
+    book_most_similar = books_model.wv.most_similar_cosmul(positive=word)
+    tv_most_similar = tv_show_model.wv.most_similar_cosmul(positive=word)
     print("\nWord: {}. \n\tBooks most similar - {} \n\tTV show most similar - {}".format(
-        word, book_most_similar, tv_most_similar
+        word, [x[0] for x in book_most_similar][:3], [x[0] for x in tv_most_similar][:3]
     ))
 
 for words_triples in words_triples_list:
