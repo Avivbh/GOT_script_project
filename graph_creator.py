@@ -92,9 +92,18 @@ class GraphCreator(object):
 
 
 if __name__ == '__main__':
-    episode = '01'
-    season = '2'
-    graph_creator = GraphCreator(f'parsed/season{season}.pkl')
-    graph_creator.export_episode_graph_to_gephi(episode, f'season_{season}_episode_{episode}_sentiment.gexf')
+    # episode = '01'
+    # season = '2'
+    # graph_creator = GraphCreator(f'parsed/season{season}.pkl')
+    # # graph_creator.export_episode_graph_to_gephi(episode, f'season_{season}_episode_{episode}_sentiment.gexf')
     # graph_creator.export_season_graph_to_gephi(f'season_{season}_sentiment.gexf')
-    graph_creator.pickle_season_graphs(f'pickled_graphs/graphs_season_{season}.pkl')
+    # graph_creator.pickle_season_graphs(f'pickled_graphs/graphs_season_{season}.pkl')
+
+
+    for i in range(2,8):
+        print("Season: ", i)
+        season = str(i)
+        graph_creator = GraphCreator(f'parsed/season{season}.pkl')
+        # graph_creator.export_episode_graph_to_gephi(episode, f'season_{season}_episode_{episode}_sentiment.gexf')
+        graph_creator.export_season_graph_to_gephi(f'season_{season}_sentiment.gexf')
+        graph_creator.pickle_season_graphs(f'pickled_graphs/graphs_season_{season}.pkl')

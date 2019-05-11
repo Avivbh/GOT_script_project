@@ -29,6 +29,7 @@ class NameUtils(object):
             'glover': 'robett glover',
             'olenna': 'lady olenna',
             'daario': 'daario naharis',
+            'daaerio': 'daario naharis',
             'darrio': 'daario naharis',
             'dario': 'daario naharis',
             'mace': 'mace tyrell',
@@ -38,6 +39,7 @@ class NameUtils(object):
             'danerys': 'daenerys targaryen',
             'danaerys': 'daenerys targaryen',
             'daerneys': 'daenerys targaryen',
+            'daeynerys': 'daenerys targaryen',
             'denerys': 'daenerys targaryen',
             'daenerys': 'daenerys targaryen',
             'hizdahr': 'hizdahr zo loraq',
@@ -66,7 +68,11 @@ class NameUtils(object):
             'ramsey': 'ramsay',
             'ahsh': 'osha',
             'radzai mo eraz': 'radzal mo eraz',
-            'rikon': 'rickon'
+            'rikon': 'rickon',
+            'ahsa': 'osha',
+            'tyron': 'tyrion',
+            'greyworm': 'grey worm',
+            'samwell': 'sam',
         }
         self._names_to_unique = ['man', "ironborn", 'crowd', 'gold cloak', 'announcer', 'lord', 'watchman', 'the group',
                                  'blacksmith' 'woman #9', 'woman', 'tailor', 'woman #8', 'driver', 'frey soldier #3',
