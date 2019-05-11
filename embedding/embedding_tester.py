@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 from gensim import utils
 from gensim.utils import SaveLoad
-from MulticoreTSNE import MulticoreTSNE as TSNE
+# from MulticoreTSNE import MulticoreTSNE as TSNE
 
 pass
 
@@ -19,9 +19,14 @@ def test_words_similarity(books_model, tv_show_model):
     list_of_words = ['stark', 'dragon', 'jon', 'cersei', 'arya']
 
     words_triples_list = [['man', 'woman', 'king'],
-                          ['sansa', 'stark', 'jaime'],
-                          ['jaime', 'cersei', 'jon'],
-                          ['jaime', 'cersei', 'arya']
+                          ['sansa', 'stark', 'jaime'], #lannister
+                          ['jaime', 'cersei', 'jon'],#'bran', 'ned', 'theon', 'rickon', 'rob'
+                          ['jaime', 'cersei', 'arya'], #sansa
+                          ['valar', 'morghulis', 'valar'],#dohaeris
+                          ['catelyn', 'brienne', 'tyrion'],#bronn
+                          ['brienne', 'catelyn', 'bronn'],#tyrion # NOT simetric relation!
+                          ['valyrian', 'steel', 'dornish'],#wine
+
                           ]
 
     for word in list_of_words:
@@ -32,12 +37,10 @@ def test_words_similarity(books_model, tv_show_model):
         ))
 
     for words_triples in words_triples_list:
-        book_most_similar = \
-            books_model.wv.most_similar_cosmul(positive=[words_triples[1], words_triples[2]],
-                                               negative=[words_triples[0]])[
-                0][0]
-        tv_most_similar = tv_show_model.wv.most_similar_cosmul(positive=[words_triples[1], words_triples[2]],
-                                                               negative=[words_triples[0]])[0][0]
+        book_most_similar = [x[0] for x in books_model.wv.most_similar_cosmul(positive=[words_triples[1], words_triples[2]],
+                                               negative=[words_triples[0]])[:3]]
+        tv_most_similar = [x[0] for x in tv_show_model.wv.most_similar_cosmul(positive=[words_triples[1], words_triples[2]],
+                                                               negative=[words_triples[0]])[:3]]
         print("\n{} is to {} like {} is to: \n\tBooks - {} \n\tTV show - {}".format(
             words_triples[0], words_triples[1], words_triples[2], book_most_similar, tv_most_similar
         ))
