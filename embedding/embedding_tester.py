@@ -6,7 +6,9 @@ import pandas as pd
 import numpy as np
 from gensim import utils
 from gensim.utils import SaveLoad
-# from MulticoreTSNE import MulticoreTSNE as TSNE
+from MulticoreTSNE import MulticoreTSNE as TSNE
+
+from embedding.utils import get_char_list, get_adj_from_json
 
 pass
 
@@ -19,14 +21,9 @@ def test_words_similarity(books_model, tv_show_model):
     list_of_words = ['stark', 'dragon', 'jon', 'cersei', 'arya']
 
     words_triples_list = [['man', 'woman', 'king'],
-                          ['sansa', 'stark', 'jaime'], #lannister
-                          ['jaime', 'cersei', 'jon'],#'bran', 'ned', 'theon', 'rickon', 'rob'
-                          ['jaime', 'cersei', 'arya'], #sansa
-                          ['valar', 'morghulis', 'valar'],#dohaeris
-                          ['catelyn', 'brienne', 'tyrion'],#bronn
-                          ['brienne', 'catelyn', 'bronn'],#tyrion # NOT simetric relation!
-                          ['valyrian', 'steel', 'dornish'],#wine
-
+                          ['sansa', 'stark', 'jaime'],
+                          ['jaime', 'cersei', 'jon'],
+                          ['jaime', 'cersei', 'arya']
                           ]
 
     for word in list_of_words:
@@ -37,10 +34,12 @@ def test_words_similarity(books_model, tv_show_model):
         ))
 
     for words_triples in words_triples_list:
-        book_most_similar = [x[0] for x in books_model.wv.most_similar_cosmul(positive=[words_triples[1], words_triples[2]],
-                                               negative=[words_triples[0]])[:3]]
-        tv_most_similar = [x[0] for x in tv_show_model.wv.most_similar_cosmul(positive=[words_triples[1], words_triples[2]],
-                                                               negative=[words_triples[0]])[:3]]
+        book_most_similar = \
+            books_model.wv.most_similar_cosmul(positive=[words_triples[1], words_triples[2]],
+                                               negative=[words_triples[0]])[
+                0][0]
+        tv_most_similar = tv_show_model.wv.most_similar_cosmul(positive=[words_triples[1], words_triples[2]],
+                                                               negative=[words_triples[0]])[0][0]
         print("\n{} is to {} like {} is to: \n\tBooks - {} \n\tTV show - {}".format(
             words_triples[0], words_triples[1], words_triples[2], book_most_similar, tv_most_similar
         ))
@@ -89,6 +88,8 @@ def get_womanly_words(model, adjectives_list, woman_words_list):
     similarity_list = []
     for word in adjectives_list:
         try:
+            if model.wv.vocab[word].count < 20:
+                continue
             similarity_tuple = (word, cosine_similarity(model[word], woman_embd))
             similarity_list.append(similarity_tuple)
         except KeyError:
@@ -106,7 +107,7 @@ def get_similart_words_embd(model, source_mame = "Books"):
                       'fathers', 'men', 'boys', 'males', 'brothers', 'uncle',
                       'uncles', 'nephew', 'nephews']
 
-    adjectives_list = ['sexy', 'pretty', 'ugly', 'killer', 'fighter', 'strong', 'thankless', 'tactful', 'distrustful', 'quarrelsome', 'effeminate', 'fickle',
+    adjectives_list = ['bitch', 'fucker','fucked', 'sexy', 'pretty', 'ugly', 'killer', 'fighter', 'strong', 'thankless', 'tactful', 'distrustful', 'quarrelsome', 'effeminate', 'fickle',
                        'talkative', 'dependable', 'resentful', 'sarcastic', 'unassuming', 'changeable', 'resourceful',
                        'persevering', 'forgiving', 'assertive', 'individualistic', 'vindictive', 'sophisticated',
                        'persevering', 'forgiving', 'assertive', 'individualistic', 'vindictive', 'sophisticated',
@@ -136,10 +137,14 @@ def get_similart_words_embd(model, source_mame = "Books"):
                        'cool', 'curious', 'reserved', 'silent', 'honest', 'quick', 'friendly', 'efficient', 'pleasant',
                        'severe', 'peculiar', 'quiet', 'weak', 'anxious', 'nervous', 'warm']
 
-    # ------------------
-    woman_words_list = ['arya']
+    # adjectives_list = list(set(adjectives_list + get_adj_from_json()))
 
-    man_words_list = ['sansa']
+    # ------------------
+    # woman_words_list = ['arya']
+    # woman_words_list = get_char_list(male=False)
+    #
+    # man_words_list = ['sansa']
+    # man_words_list = get_char_list(male=True)
     # ------------------
 
 
