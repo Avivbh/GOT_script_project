@@ -21,13 +21,102 @@ def test_words_similarity(books_model, tv_show_model):
     list_of_words = ['stark', 'dragon', 'jon', 'cersei', 'arya']
 
     words_triples_list = [['man', 'woman', 'king'],
-                          ['sansa', 'stark', 'jaime'], #lannister
-                          ['jaime', 'cersei', 'jon'],#'bran', 'ned', 'theon', 'rickon', 'rob'
-                          ['jaime', 'cersei', 'arya'], #sansa
-                          ['valar', 'morghulis', 'valar'],#dohaeris
-                          ['catelyn', 'brienne', 'tyrion'],#bronn
-                          ['brienne', 'catelyn', 'bronn'],#tyrion # NOT simetric relation!
-                          ['valyrian', 'steel', 'dornish'],#wine
+                          ['sansa', 'stark', 'jaime'],  #lannister
+                          ['jaime', 'cersei', 'jon'],  #'bran', 'ned', 'theon', 'rickon', 'rob'
+                          ['jaime', 'cersei', 'arya'],  #sansa
+                          ['tywin', 'tyrion', 'ned'],  #arya
+                          ['valar', 'morghulis', 'valar'],  #dohaeris
+                          ['catelyn', 'brienne', 'tyrion'],  #bronn
+                          ['brienne', 'catelyn', 'bronn'],  #tyrion # NOT simetric relation!
+                          ['valyrian', 'steel', 'dornish'],  #wine
+                          ['he', 'eat', 'she'],  #fuck
+                          ['baelish', 'littlefinger', 'daenerys'],  # dany
+                          ['westeros', 'qyburn', 'winterfell'],  # luwin
+                          ['ghost', 'jon', 'nymeria'],  # arya
+                          ['sansa', 'lady', 'jon'],  # lord
+                          ['daenerys', 'khaleesi', 'cersei'],  # mlady
+                          ['ned', 'robert', 'tywin'],  # joffrey
+                          ['petyr', 'catelyn', 'jorah'],  # dany
+                          ['jon', 'north', 'cersei'],  # landing, kingdoms (AKA king's landing)
+                          ['jon', 'north', 'daenerys'],  # westeros, meereen, yunkai
+                          ['brienne', 'catelyn', 'hodor'],  # bran, rickon
+                          ['mountain', 'hound', 'jon'],  # theon, arya
+
+
+
+                          # tests of nicknames
+                          ['imp', 'tyrion', 'littlefinger'],  #baelish, pyter
+                          ['dwarf', 'tyrion', 'littlefinger'],  #baelish, pyter
+                          ['baelish', 'littlefinger', 'tyrion'],  #imp, dwarf
+                          ['tyrion', 'imp', 'baelish'],  #littlefinger
+                          ['tyrion', 'dwarf', 'baelish'],  #littlefinger
+                          ['daenerys', 'khaleesi', 'joffrey'],  #mlady
+                          ['robert', 'ned', 'joffrey'],  #tywin
+                          ['daenerys', 'jorah', 'catelyn'],  #petyr
+                          ['jorah', 'daenerys', 'petyr'],  #catelyn
+
+
+
+                          ['white', 'walker', 'black'],  #westeros, meereen, yunkai
+                          ['stannis', 'baratheon', 'robb'],  #stark
+                          ['mountain', 'hound', 'jon'],  #theon, arya
+                          ['baelish', 'littlefinger', 'clegane'],  # hound
+                          ['littlefinger', 'baelish', 'onion'],  # davos
+                          ['petyr', 'littlefinger', 'sandor'],  # hound
+                          ['petyr', 'littlefinger', 'clegane'],  # hound
+                          ['gregor', 'mountain', 'sandor'],  # hound
+                          ['clegane', 'hound', 'clegane'],  # mountain
+                          ['clegane', 'hound', 'jon'],  # mountain
+                          ['clegane', 'mountain', 'clegane'],  # hound
+                          ['littlefinger', 'baelish', 'hound'],  # clegane
+                          ['tyrion', 'imp', 'sandor'],  # clegane
+                          ['tyrion', 'imp', 'clegane'],  # clegane
+                          ['jon', 'king', 'davos'],  # ser
+                          ['stannis', 'king', 'davos'],  # ser
+                          ['davos', 'ser', 'jon'],  # king
+
+                          # Bastard
+                          ['gendry', 'robert', 'jon'],  # ned
+                          ['robert', 'gendry', 'ned'],  # jon
+                          ['gendry', 'baratheon', 'jon'],  # stark
+                          ['baratheon', 'gendry', 'stark'],  # jon
+                          ['ned', 'jon', 'robert'],  # gendry
+                          ['jon', 'ned', 'gendry'],  # robert
+                          ['jon', 'stark', 'gendry'],  # baratheon
+
+
+                          ['gendry', 'bastard', 'jon'],
+                          ['bastard', 'gendry', 'bastard'],
+                          ['bastard', 'jon', 'bastard'],
+                          ['bastard', 'ramsay', 'bastard'],
+                          ['ramsay', 'bolton', 'gendry'],  # baratheon
+                          ['ramsay', 'roose', 'gendry'], # baratheon(weak)
+                          ['ramsay', 'roose', 'gendry'], # baratheon(weak)
+                          ['ramsay', 'roose', 'jon'],  # ned
+                          ['roose', 'ramsay', 'robert'],  # gendry
+                          ['robert', 'gendry', 'roose'],  # gendry
+                          ['gendry', 'robert', 'ramsay'],  # boltons(weak),
+                          ['jon', 'ned', 'ramsay'],  # boltons(weak), roose(strong) - V
+                          ['jon', 'ned', 'gendry'],  # robert
+
+                            # Treatment to bastars
+
+                          # """
+                          # Due to its unique history and culture, bastards in Dorne are not looked down upon the way they are in the rest of the Seven Kingdoms.
+                          # """
+                          ['landing', 'bastard', 'dorne'],  # something bad
+                          ['dorne', 'bastard', 'landing'],  # something good
+
+                          ['winterfell', 'bastard', 'dorne'],  # something bad
+                          ['dorne', 'bastard', 'winterfell'],  # something good
+
+                          ['gendry', 'robert', 'ramsay'],  # boltons(weak), roose - V
+                          ['robert', 'gendry', 'roose'],  # boltons(weak), ramsay - V
+
+                          ['jon', 'ned', 'ramsay'],  # boltons(weak), roose(strong) - V
+                          ['jon', 'ned', 'roose'],  # boltons(weak), ramsay(strong) - V
+
+                          # ['khaleesi', 'daenerys', 'jon'],
 
                           ]
 
@@ -40,9 +129,9 @@ def test_words_similarity(books_model, tv_show_model):
 
     for words_triples in words_triples_list:
         book_most_similar = [x[0] for x in books_model.wv.most_similar_cosmul(positive=[words_triples[1], words_triples[2]],
-                                               negative=[words_triples[0]])[:3]]
+                                               negative=[words_triples[0]])[:5]]
         tv_most_similar = [x[0] for x in tv_show_model.wv.most_similar_cosmul(positive=[words_triples[1], words_triples[2]],
-                                                               negative=[words_triples[0]])[:3]]
+                                                               negative=[words_triples[0]])[:5]]
         print("\n{} is to {} like {} is to: \n\tBooks - {} \n\tTV show - {}".format(
             words_triples[0], words_triples[1], words_triples[2], book_most_similar, tv_most_similar
         ))
@@ -180,11 +269,11 @@ if __name__ == '__main__':
 
     # dim_reduction(books_model, tv_show_model)
 
-    books_manly_words, books_womanly_words = get_similart_words_embd(books_model, source_mame='Books')
-    tv_manly_words, tv_womanly_words = get_similart_words_embd(tv_show_model, source_mame='TV Show')
+    # books_manly_words, books_womanly_words = get_similart_words_embd(books_model, source_mame='Books')
+    # tv_manly_words, tv_womanly_words = get_similart_words_embd(tv_show_model, source_mame='TV Show')
 
-    similarity_df = pd.DataFrame([books_manly_words, books_womanly_words, tv_manly_words, tv_womanly_words ]).T
-    similarity_df.columns = ['books manly words', 'books womanly words', 'tv manly words', 'tv womanly words']
+    # similarity_df = pd.DataFrame([books_manly_words, books_womanly_words, tv_manly_words, tv_womanly_words ]).T
+    # similarity_df.columns = ['books manly words', 'books womanly words', 'tv manly words', 'tv womanly words']
     # similarity_df.to_csv('../data/similarity_tables/manly_and_womanly_words.csv')
 
     pass
