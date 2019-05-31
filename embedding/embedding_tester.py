@@ -32,10 +32,33 @@ def test_words_similarity(books_model, tv_show_model):
                           ['he', 'eat', 'she'],  #fuck
                           ['baelish', 'littlefinger', 'daenerys'],  # dany
                           ['westeros', 'qyburn', 'winterfell'],  # luwin
+                          ['westeros', 'pycelle', 'winterfell'],  # luwin
+                          ['qyburn', 'westeros', 'luwin'],  # winterfell
+                          ['pycelle', 'westeros', 'luwin'],  # winterfell
+                          ['luwin', 'winterfell', 'qyburn'],  # westeros
+                          ['luwin', 'winterfell', 'pycelle'],  # westeros
+                          ['winterfell', 'luwin', 'westeros'],  # qyburn, pycelle
                           ['ghost', 'jon', 'nymeria'],  # arya
+                          ['jon', 'ghost', 'arya'],  # nymeria
+                          ['arya', 'nymeria', 'jon'],  # ghost
+                          ['nymeria', 'arya', 'ghost'],  # jon
                           ['sansa', 'lady', 'jon'],  # lord
                           ['daenerys', 'khaleesi', 'cersei'],  # mlady
                           ['ned', 'robert', 'tywin'],  # joffrey
+                          ['jon', 'fighting', 'tyrion'],  # joffrey
+                          ['ned', 'fighting', 'tyrion'],  # joffrey
+                          ['cloaks', 'gold', 'night'],  # #watch
+                          ['cloaks', 'janos', 'crows'],  # #watch
+                          ['crows', 'mormont', 'cloaks'],  # #watch
+                          ['watch', 'mormont', 'cloaks'],  # #watch
+                          ['mormont', 'crows', 'janos'],  # #watch
+                          ['mormont', 'watch', 'janos'],  # #watch
+                          ['cloaks', 'janos', 'crows'],  # #watch
+                          ['cloaks', 'janos', 'watch'],  # #watch
+                          ['crows', 'watch', 'gold'],  # #landing
+                          ['crows', 'watch', 'cloak'],  # #landing
+                          ['cloaks', 'landing', 'watch'],  # joffrey
+                          ['robert', 'fighting', 'tyrion'],  # joffrey
                           ['petyr', 'catelyn', 'jorah'],  # dany
                           ['jon', 'north', 'cersei'],  # landing, kingdoms (AKA king's landing)
                           ['jon', 'north', 'daenerys'],  # westeros, meereen, yunkai
@@ -269,12 +292,12 @@ if __name__ == '__main__':
 
     # dim_reduction(books_model, tv_show_model)
 
-    # books_manly_words, books_womanly_words = get_similart_words_embd(books_model, source_mame='Books')
-    # tv_manly_words, tv_womanly_words = get_similart_words_embd(tv_show_model, source_mame='TV Show')
+    books_manly_words, books_womanly_words = get_similart_words_embd(books_model, source_mame='Books')
+    tv_manly_words, tv_womanly_words = get_similart_words_embd(tv_show_model, source_mame='TV Show')
 
-    # similarity_df = pd.DataFrame([books_manly_words, books_womanly_words, tv_manly_words, tv_womanly_words ]).T
-    # similarity_df.columns = ['books manly words', 'books womanly words', 'tv manly words', 'tv womanly words']
-    # similarity_df.to_csv('../data/similarity_tables/manly_and_womanly_words.csv')
+    similarity_df = pd.DataFrame([books_manly_words, books_womanly_words, tv_manly_words, tv_womanly_words ]).T
+    similarity_df.columns = ['books manly words', 'books womanly words', 'tv manly words', 'tv womanly words']
+    similarity_df.to_csv('../data/similarity_tables/manly_and_womanly_words.csv')
 
     pass
 
