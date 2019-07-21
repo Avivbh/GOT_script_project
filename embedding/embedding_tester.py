@@ -122,7 +122,7 @@ def test_words_similarity(books_model, tv_show_model):
                           ['jon', 'ned', 'ramsay'],  # boltons(weak), roose(strong) - V
                           ['jon', 'ned', 'gendry'],  # robert
 
-                            # Treatment to bastars
+                          # Treatment to bastars
 
                           # """
                           # Due to its unique history and culture, bastards in Dorne are not looked down upon the way they are in the rest of the Seven Kingdoms.
@@ -141,6 +141,22 @@ def test_words_similarity(books_model, tv_show_model):
 
                           # ['khaleesi', 'daenerys', 'jon'],
 
+                          # Oren Stuff
+                          ['man', 'warrior', 'woman'],  # boltons(weak), ramsay(strong) - V
+                          ['woman', 'warrior', 'man'],  # boltons(weak), ramsay(strong) - V
+
+                          ['man', 'knight', 'woman'],  # boltons(weak), ramsay(strong) - V
+                          ['woman', 'fighter', 'man'],  # boltons(weak), ramsay(strong) - V
+
+                          ['man', 'mad', 'woman'],  # boltons(weak), ramsay(strong) - V
+                          ['woman', 'mad', 'man'],  # boltons(weak), ramsay(strong) - V
+
+                          ['man', 'eat', 'woman'],  # boltons(weak), ramsay(strong) - V
+                          ['woman', 'eat', 'man'],  # boltons(weak), ramsay(strong) - V
+
+                          ['man', 'drink', 'woman'],  # boltons(weak), ramsay(strong) - V
+                          ['woman', 'drink', 'man'],  # boltons(weak), ramsay(strong) - V
+
                           ]
 
     for word in list_of_words:
@@ -152,9 +168,10 @@ def test_words_similarity(books_model, tv_show_model):
 
     for words_triples in words_triples_list:
         book_most_similar = [x[0] for x in books_model.wv.most_similar_cosmul(positive=[words_triples[1], words_triples[2]],
-                                               negative=[words_triples[0]])[:5]]
+                                                                              negative=[words_triples[0]])[:5]]
+
         tv_most_similar = [x[0] for x in tv_show_model.wv.most_similar_cosmul(positive=[words_triples[1], words_triples[2]],
-                                                               negative=[words_triples[0]])[:5]]
+                                                                              negative=[words_triples[0]])[:5]]
         print("\n{} is to {} like {} is to: \n\tBooks - {} \n\tTV show - {}".format(
             words_triples[0], words_triples[1], words_triples[2], book_most_similar, tv_most_similar
         ))
@@ -257,10 +274,10 @@ def get_similart_words_embd(model, source_mame = "Books"):
     # adjectives_list = list(set(adjectives_list + get_adj_from_json()))
 
     # ------------------
-    # woman_words_list = ['arya']
+    # woman_words_list = ['cersei']
     # woman_words_list = get_char_list(male=False)
     #
-    # man_words_list = ['sansa']
+    # man_words_list = ['jon' ]
     # man_words_list = get_char_list(male=True)
     # ------------------
 
@@ -299,5 +316,31 @@ if __name__ == '__main__':
     similarity_df.columns = ['books manly words', 'books womanly words', 'tv manly words', 'tv womanly words']
     similarity_df.to_csv('../data/similarity_tables/manly_and_womanly_words.csv')
 
-    pass
+    # pass
+
+
+    # Get pca
+    words = [x for x in books_model.wv.vocab]
+    words_embs = {}
+    for word in words:
+        words_embs[word] = books_model.wv[word]
+
+    df = pd.DataFrame.from_dict(words_embs).transpose()
+
+
+    import numpy as np
+    import pandas as pd
+    from sklearn.decomposition import PCA
+    from sklearn.manifold import TSNE
+
+
+    df_pca = pd.DataFrame(PCA(n_components=2).fit_transform(df), columns=["pca1","pca2"])
+    df_pca = df_pca.set_index(df.index)
+
+    df_tsne = pd.DataFrame(TSNE(n_components=2).fit_transform(df), columns=["tsne1", "tsne2"])
+    df_tsne = df_tsne.set_index(df.index)
+
+    df = pd.concat([df, df_pca, df_tsne], axis=1)
+    df["word"] = df.index
+    df.to_csv("lala.csv")
 
